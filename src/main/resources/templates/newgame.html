@@ -4,9 +4,10 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <title>Badlands</title>
+        <link type="text/css" href="resources/css/main.css" rel="stylesheet" />
     </head>
     <body>
-        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]</h1>
+        <h3 th:inline="text">Current User: [[${#httpServletRequest.remoteUser}]]</h3>
         <a href="/logout">Log Out</a>
     </body>
 </html>

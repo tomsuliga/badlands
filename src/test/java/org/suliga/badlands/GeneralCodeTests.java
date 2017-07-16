@@ -102,8 +102,8 @@ public class GeneralCodeTests {
 		fibs.put(0, 0);
 		fibs.put(1, 1);
 		
-		Stream.iterate(0, a -> a+1)
-			.map(a -> fibs.computeIfAbsent(a, b -> fibs.get(b-1) + fibs.get(b-2)))
+		Stream.iterate(0, counter -> counter+1)
+			.map(key -> fibs.computeIfAbsent(key, k -> fibs.get(k-1) + fibs.get(k-2)))
 			.limit(13)
 			//.takeWhile(a -> a <= 144) // Java 9
 			.forEach(System.out::println);
