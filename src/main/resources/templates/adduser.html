@@ -11,35 +11,33 @@
 <div>
 <!-- Implicit CSRF -->
 <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
-	<label for="un42">Username:</label>
+	<label for="username">Username:</label>
 
-	<input type="text" th:field="*{username}" id="un42" required placeholder="Username">
+	<input type="text" th:field="*{username}" id="username" required placeholder="Username">
 	<br>
-	<label for="pw42">Password:</label>
-
-	<input type="password" th:field="*{password}" id="pw42" required placeholder="Password">
+	<label for="password">Password:</label>
+	<input type="password" th:field="*{password}" id="password" required placeholder="Password">
 	<br>
-	<label for="confirmpw">Confirm:</label>
-	<input type="password" name="confirmPass" id="confirmpw" placeholder="Confirm Password">
-	<input type="hidden" th:field="*{enabled}" id="enabled1" required value=true>
+	<label for="confirm">Confirm:</label>
+	<input type="password" name="confirmPass" id="confirm" placeholder="Confirm Password">
+	<input type="hidden" th:field="*{enabled}" id="enabled" required value=true>
 	<br>
+	<label for="authority">Authority:</label>
+	    <select class="form-control" id="authority" name="authority">
+        <option th:each="s : ${authorities}"
+                th:value="${s}"
+                th:text="${s}"/>
+    </select>
+    <br><br>
 	<input type="submit" value="Submit" id="btnSubmit">
+	<!-- Explicit CSRF:
+  	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+  		-->
 </form>
 </div>
 <div>
-<form method="POST" action="/adduser">
-	<label for="username2">Username:</label>
-	<input type="text" name="test1" id="username2" required placeholder="Username">
-	<br>
-	<label for="password2">Password:</label>
-	<input type="text" name="test2" id="password2" required placeholder="Password">
-	<br>
-	<input type="submit" value="Submit" id="btnSubmit2">
-	<!-- Explicit CSRF -->
-  	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-</form>
-
+<br>
 </div>
-<a th:href="@{/logout}">Logout</a>
+<a th:href="@{/home}">Home</a> | <a th:href="@{/logout}">Logout</a>
 </body>
 </html>

@@ -20,7 +20,8 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity hs) throws Exception {
         hs
             .authorizeRequests()
-                .antMatchers("/", "/index", "/home").permitAll()
+                .antMatchers("/", "/index", "/home", "/font", "/XXXrest/**").permitAll()
+                .antMatchers("/rest/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN", "ROLE_DBA")
                 .antMatchers("/adduser").hasAnyAuthority("ROLE_ADMIN", "ROLE_DBA")
                 .antMatchers("/listusers").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN", "ROLE_DBA")
                 // needed to allow login.html to access src/main/resources/static/resources/css/login.css
@@ -37,10 +38,11 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()             
             .logout()
                 .permitAll();
+
         
         // add this line to use H2 web console
     	hs.headers().frameOptions().disable();
-   	 	hs.csrf().ignoringAntMatchers("/h2-console/**", "/console/**");
+   	 	hs.csrf().ignoringAntMatchers("/h2-console/**", "/console/**", "/rest/**");
     }
 
     @Autowired

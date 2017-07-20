@@ -3,6 +3,7 @@ package org.suliga.badlands;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.intThat;
 
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -19,10 +20,21 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.Test;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class GeneralCodeTests {
 
 	@Test
+	public void testBCrypt() {
+		String[] passwords = new String[10]; 
+		long t1 = Instant.now().toEpochMilli();
+		for (int i=0;i<passwords.length;i++) {
+			passwords[i] = new BCryptPasswordEncoder(10).encode("Secret1" + i);
+		}
+		long t2 = Instant.now().toEpochMilli();
+		System.out.println("Took " + (t2-t1));
+	}
+	//@Test
 	public void test1() {
 		List<String> words = Arrays.asList("Apple", "Ping", "Sun", "Person");
 		Predicate<String> firstLetterP = a -> a.startsWith("P");
@@ -36,7 +48,7 @@ public class GeneralCodeTests {
 		assertFalse(set.contains("SUN"));
 	}
 	
-	@Test(expected = UnsupportedOperationException.class)
+	//@Test(expected = UnsupportedOperationException.class)
 	public void test2() {
 		Set<String> words1 = new ConcurrentSkipListSet<String>(Arrays.asList("Amy", "Bob", "Charlie", "Barbara"));
 		words1.add("Good");
@@ -52,7 +64,7 @@ public class GeneralCodeTests {
 		words2.add("Bad2");
 	}
 	
-	@Test(expected = NoSuchElementException.class)
+	//@Test(expected = NoSuchElementException.class)
 	public void test3() {
 		Optional<String> color1 = Optional.of("Red");
 		Optional<String> color2 = Optional.ofNullable(null);
@@ -67,7 +79,7 @@ public class GeneralCodeTests {
 		assertNull(color2.get());
 	}
 	
-	@Test
+	//@Test
 	public void testFibonacciImperative() {
 		int first = 0;
 		int second = 1;
@@ -96,7 +108,7 @@ public class GeneralCodeTests {
 				.forEach(System.out::println);
 	}
 	
-	@Test
+	//@Test
 	public void testFibonaciiJava8Streams() {
 		Map<Integer,Integer> fibs = new HashMap<>();
 		fibs.put(0, 0);

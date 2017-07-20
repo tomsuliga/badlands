@@ -59,13 +59,14 @@ public class MainController {
 	@GetMapping("/adduser")
 	public String addUser(Model model) {
 		model.addAttribute("user", new Users());
+		model.addAttribute("authorities", authorityService.uniqueAuthorities());
 		return "adduser";
 	}
 	
 	@PostMapping("/adduser")
-	public String addUserPost(Model model, Users users, String test1) {
+	public String addUserPost(Model model, Users users, String authority) {
 		System.out.println("post users=" + users);
-		System.out.println("post test1=" + test1);
+		System.out.println("post authority=" + authority);
 		if (users.getPassword() != null && users.getUsername() != null) {
 			users.setEnabled(true);
 			userService.addUser(users, new Authorities(users.getUsername(), "ROLE_USER"));
@@ -77,10 +78,18 @@ public class MainController {
 	public String accessDenied403(Model model) {
 		return "403";
 	}
+	
+	@GetMapping("/font")
+	public String getCustomFont(Model model) {
+		return "font";
+	}
+	
+	@GetMapping("/swagger")
+	public String getSwagger() {
+		//return "redirect:swagger-ui.html";
+		return "redirect:swagger-ui.html#/main-rest-controller";
+	}
 }
-
-
-
 
 
 

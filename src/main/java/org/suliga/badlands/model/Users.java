@@ -37,6 +37,7 @@ public class Users {
 		this.enabled = enabled;
 	}
 	public void hashPassword() {
+		// public BCryptPasswordEncoder(int strength) 4 - 31. Note: 10 is default if not given, 10 takes 100 ms on my laptop: i5 2.5 GHz, 31=3 days
 		password = new BCryptPasswordEncoder().encode(password);
 	}
 	public Long getId() {
