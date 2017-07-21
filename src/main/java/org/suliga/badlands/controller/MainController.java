@@ -11,13 +11,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.suliga.badlands.model.Authorities;
 import org.suliga.badlands.model.Users;
+import org.suliga.badlands.service.AddImageService;
 import org.suliga.badlands.service.AuthorityService;
 import org.suliga.badlands.service.UserService;
 
 @Controller
 public class MainController {
+	
+	@Autowired
+	private AddImageService addImageService;
 	
 	@Autowired
 	private UserService userService;
@@ -88,6 +95,26 @@ public class MainController {
 	public String getSwagger() {
 		//return "redirect:swagger-ui.html";
 		return "redirect:swagger-ui.html#/main-rest-controller";
+	}
+	
+	@GetMapping("/listimages")
+	public String listImages(Model model) {
+		return "listimages";
+	}
+	
+	@PostMapping("/addimage")
+	public String addImagePost(Model model, 
+		@RequestParam("file1") MultipartFile file1,
+    	@RequestParam("file2") MultipartFile file2,
+    	@RequestParam("file3") MultipartFile file3,
+        RedirectAttributes redirectAttributes) {
+		addImageService.addImages(file1, file2, file3);
+		return "redirect:listimages";
+	}
+	
+	@GetMapping("/addimage")
+	public String addImage(Model model) {
+		return "addimage";
 	}
 }
 
