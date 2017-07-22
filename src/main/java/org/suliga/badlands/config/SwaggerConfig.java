@@ -20,7 +20,7 @@ public class SwaggerConfig {
 				.groupName("greetings")
 				.apiInfo(apiInfo())
 				.select()
-				.paths(PathSelectors.regex("/rest/greeting.*"))
+				.paths(PathSelectors.regex("/rest/*.*"))
 				.build();
 	}
 	
@@ -32,8 +32,7 @@ public class SwaggerConfig {
 				.termsOfServiceUrl("http://termsofservice.com")
 				.contact(new Contact("Tom Suliga", "http://www.tomsuliga.org", "tsuliga@tomsuliga.org"))
 				.license("Apache License Version 2.0")
-				.licenseUrl("https://github.com/tomsuliga/badlands/master/LICENSE")
-				
+				.licenseUrl("https://github.com/tomsuliga/badlands/master/LICENSE")		
 				.build();
 	}
 	
