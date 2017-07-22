@@ -20,6 +20,7 @@ import org.suliga.badlands.model.Authorities;
 import org.suliga.badlands.model.Users;
 import org.suliga.badlands.service.AddImageService;
 import org.suliga.badlands.service.AuthorityService;
+import org.suliga.badlands.service.ChuckNorrisService;
 import org.suliga.badlands.service.EarthquakeService;
 import org.suliga.badlands.service.UserService;
 
@@ -37,6 +38,9 @@ public class MainController {
 	
 	@Autowired
 	private EarthquakeService earthquakeService;
+	
+	@Autowired
+	private ChuckNorrisService chuckNorrisService;
 	
 	@GetMapping({"/","/index","/home"})
 	public String getHome(Model model) {
@@ -128,6 +132,12 @@ public class MainController {
 		List<String> list = earthquakeService.doit();
 		model.addAttribute("events", list);
 		return "earthquake";
+	}
+	
+	@GetMapping("/chucknorris")
+	public String chucknorris(Model model) {
+		model.addAttribute("joke", chuckNorrisService.getRandomJoke());
+		return "chucknorris";
 	}
 }
 
