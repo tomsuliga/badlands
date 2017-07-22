@@ -1,5 +1,7 @@
 package org.suliga.badlands.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,6 +20,7 @@ import org.suliga.badlands.model.Authorities;
 import org.suliga.badlands.model.Users;
 import org.suliga.badlands.service.AddImageService;
 import org.suliga.badlands.service.AuthorityService;
+import org.suliga.badlands.service.EarthquakeService;
 import org.suliga.badlands.service.UserService;
 
 @Controller
@@ -31,6 +34,9 @@ public class MainController {
 	
 	@Autowired
 	private AuthorityService authorityService;
+	
+	@Autowired
+	private EarthquakeService earthquakeService;
 	
 	@GetMapping({"/","/index","/home"})
 	public String getHome(Model model) {
@@ -115,6 +121,13 @@ public class MainController {
 	@GetMapping("/addimage")
 	public String addImage(Model model) {
 		return "addimage";
+	}
+	
+	@GetMapping("/earthquake")
+	public String earthquake(Model model) {
+		List<String> list = earthquakeService.doit();
+		model.addAttribute("events", list);
+		return "earthquake";
 	}
 }
 
