@@ -2,6 +2,7 @@
 gradle
 .git
 bin
+logs
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 

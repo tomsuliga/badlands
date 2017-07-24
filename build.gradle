@@ -21,6 +21,8 @@ repositories {
 	mavenCentral()
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
@@ -39,9 +41,23 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-websocket')
+	
+	compile("org.springframework.ldap:spring-ldap-core")
+    compile("org.springframework.security:spring-security-ldap")
+    compile("org.springframework:spring-tx")
+    compile("com.unboundid:unboundid-ldapsdk")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
+    
+	compile('org.apache.commons:commons-lang3:3.6')
+	compile('io.springfox:springfox-swagger-ui:2.6.1')
+	compile('io.springfox:springfox-swagger2:2.6.1')
+	compile('org.codehaus.jackson:jackson-core-asl:1.9.2')
+	compile('org.codehaus.jackson:jackson-mapper-asl:1.9.2')
 	runtime('org.springframework.boot:spring-boot-devtools')
 	runtime('com.h2database:h2')
 	runtime('mysql:mysql-connector-java')
+	runtime('net.sourceforge.nekohtml:nekohtml:1.9.22')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 }

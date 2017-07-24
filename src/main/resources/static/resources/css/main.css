@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+title {
+    display: none;
+}
+
+h1, h2, h3 {
+	color: blue;
+}
+
+label {
+	margin: .4em;
+	width: 5em;
+	display: inline-block;
+}

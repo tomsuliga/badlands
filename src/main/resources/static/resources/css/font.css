@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+@font-face {
+	font-family: 'Earthquake1';
+	src: url('/resources/fonts/EarthquakeMF.ttf');
+}
+
+h1 {
+	font-family: 'Earthquake1', sans-serif;
+	letter-spacing: 2px;
+	color: #c00;
+}
+
+@font-face {
+	font-family: 'Earthquake2';
+	src: url('../fonts/EarthquakeMF.ttf');
+}
+
+h2 {
+	font-family: 'Earthquake2', sans-serif;
+	letter-spacing: 2px;
+	color: #c00;
+}
+

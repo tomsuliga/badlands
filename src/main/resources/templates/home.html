@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<link type="text/css" href="resources/css/main.css" rel="stylesheet" />
+<head>
+<meta charset="ISO-8859-1">
+<title>Badlands</title>
+</head>
+<body>
+<h2>BadLands</h2>
+<h3 th:inline="text">Current User: [[${#httpServletRequest.remoteUser}]]</h3>
+<a href="/newgame">New Game</a> |
+<a href="/adduser">Add User</a> |
+<a href="/listusers">List Users</a> |
+<a href="/font">Custom Font</a> |
+<a href="/listimages">List Images</a> |
+<a href="/addimage">Add Image</a> |
+<a href="/earthquake">Earthquake</a> |
+<a href="/chucknorris">Chuck Norris</a> |
+<a href="/logout">Log Out</a>
+</body>
+</html>
