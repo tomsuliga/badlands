@@ -139,6 +139,11 @@ public class MainController {
 		model.addAttribute("joke", chuckNorrisService.getRandomJoke());
 		return "chucknorris";
 	}
+	
+	@GetMapping("/i18n")
+	public String i18n(Model model) {
+		return "i18n";
+	}
 }
 
 
