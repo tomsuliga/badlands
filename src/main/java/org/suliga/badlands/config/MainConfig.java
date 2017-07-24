@@ -2,6 +2,12 @@ package org.suliga.badlands.config;
 
 import java.util.Locale;
 
+import org.apache.catalina.Context;
+import org.apache.catalina.connector.Connector;
+import org.apache.tomcat.util.descriptor.web.SecurityCollection;
+import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -30,5 +36,33 @@ public class MainConfig extends WebMvcConfigurerAdapter {
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
 	}
+	
+	// Redirect http to https
+	@Bean
+	public EmbeddedServletContainerFactory tomcatEmbeddedServletContainerFactory() {
+	    final TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory() {
+		    @Override
+		    protected void postProcessContext(Context context) {
+		        SecurityConstraint securityConstraint = new SecurityConstraint();
+		        securityConstraint.setUserConstraint("CONFIDENTIAL");
+		        SecurityCollection collection = new SecurityCollection();
+		        collection.addPattern("/*");
+		        securityConstraint.addCollection(collection);
+		        context.addConstraint(securityConstraint);
+		    }
+		};
+	    factory.addAdditionalTomcatConnectors(this.createConnection());
+	    return factory;
+	}
+
+	private Connector createConnection() {
+	    final String protocol = "org.apache.coyote.http11.Http11NioProtocol";
+	    final Connector connector = new Connector(protocol);
+
+	    connector.setScheme("http");
+	    connector.setPort(8080);
+	    connector.setRedirectPort(8443);
+	    return connector;
+	}	
 }
 
