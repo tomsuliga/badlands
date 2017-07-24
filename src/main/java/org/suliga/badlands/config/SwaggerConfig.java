@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -20,7 +21,9 @@ public class SwaggerConfig {
 				.groupName("greetings")
 				.apiInfo(apiInfo())
 				.select()
-				.paths(PathSelectors.regex("/rest/*.*"))
+				.apis(RequestHandlerSelectors.any()) // predicate RequestHandler
+				//.paths(PathSelectors.regex("/rest/*.*")) // only rest apis that start with /rest/
+				.paths(PathSelectors.any()) // all rest apis 
 				.build();
 	}
 	
@@ -34,17 +37,5 @@ public class SwaggerConfig {
 				.license("Apache License Version 2.0")
 				.licenseUrl("https://github.com/tomsuliga/badlands/master/LICENSE")		
 				.build();
-	}
-	
-/*	
-    @Bean
-    public Docket api() { 
-        return new Docket(DocumentationType.SWAGGER_2)  
-          .select()                                  
-          .apis(RequestHandlerSelectors.any())              
-          .paths(PathSelectors.any())                          
-          .build();                                           
-    }
-*/
-
+	}	
 }
