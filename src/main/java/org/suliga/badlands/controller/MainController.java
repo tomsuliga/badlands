@@ -12,6 +12,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -143,6 +144,24 @@ public class MainController {
 	@GetMapping("/i18n")
 	public String i18n(Model model) {
 		return "i18n";
+	}
+	
+	@GetMapping("/allhtml") 
+	public String allhtml(Model model) { 
+		return "allhtml"; 
+	}
+	
+	@GetMapping("/testform")
+	public String testForm(Model model, @ModelAttribute("name") String name) {
+		model.addAttribute("name", name);
+		return "testform";
+	}
+	
+	@PostMapping("/testform")
+	public String testFormPost(RedirectAttributes redirectAttrs, 
+							   @RequestParam("name") String name) {
+		redirectAttrs.addFlashAttribute("name", name);
+		return "redirect:testform";
 	}
 }
 
