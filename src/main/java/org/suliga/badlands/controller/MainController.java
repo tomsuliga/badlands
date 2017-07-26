@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,6 +29,7 @@ import org.suliga.badlands.service.UserService;
 
 @Controller
 public class MainController {
+	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
 	@Autowired
 	private AddImageService addImageService;
@@ -158,8 +161,18 @@ public class MainController {
 	}
 	
 	@PostMapping("/testform")
-	public String testFormPost(RedirectAttributes redirectAttrs, 
-							   @RequestParam("name") String name) {
+	public String testFormPost(RedirectAttributes redirectAttrs,
+							   @RequestParam("pw") String pw,
+							   @RequestParam("name") String name,
+							   @RequestParam(value="colors", required=false) String[] colors,
+							   @RequestParam(value="os", required=false) String os) {
+		logger.info("pw=" + pw);
+		logger.info("os=" + os);
+		if (colors != null) {
+			for (String s : colors) {
+				logger.info("color=" + s);
+			}
+		}
 		redirectAttrs.addFlashAttribute("name", name);
 		return "redirect:testform";
 	}

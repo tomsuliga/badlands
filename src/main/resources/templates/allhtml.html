@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="us" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Badlands</title>
-<link type="text/css" href="resources/css/allcss.css" rel="stylesheet" />
+	<title>Badlands</title>
+	<meta charset="ISO-8859-1">
+	<meta name="description" content="Badlands Html Examples">
+	<meta name="keywords" content="html5, javascript, tutorial, examples">
+	<meta name="robots" content="noindex, noarchive, nofollow">
+	<meta http-equiv="author" content="Tom Smith">
+	<meta http-equiv="pragma" content="no-cache">
+	<link type="text/css" href="resources/css/allcss.css" rel="stylesheet" />
+	<style type="text/css">
+		h3 {
+			color: red;
+		}
+	</style>
 </head>
 <body>
-<h1 id="top">Heading h1</h1>
+<span class="largefont">My Large Text</span>
+<h1 id="top" class="blue">Heading h1</h1>
 <h2>Heading h2</h2>
 <h3>Heading h3</h3>
 <h4>Heading h4</h4>
@@ -146,17 +157,65 @@ Relative url: <a href="home">Home</a> - same folder
 </table>
 <br>
 <form method="post">
-	<label for="name">Name</label><input type="text" id="name" name="name" placeholder="Enter Name" />
+	<!-- Start -->
+	<label for="name">Name</label><input type="text" id="name" name="name" placeholder="Enter name" required/>
+	<br>
+	<label for="pw">Password</label><input type="password" id="pw" name="pw"/>
+	<br>
+	<label for="notes" class="blue">Notes</label><textarea id="notes" cols="40" rows="8"></textarea>
+	<br>
+		<input type="radio" id="r1" name="band" value="rush" checked /><label for="r1">Rush</label>
+		<input type="radio" id="r2" name="band" value="posies" /><label for="r2">The Posies</label>
+		<input type="radio" id="r3" name="band" value="ccr" /><label for="r3">CCR</label>
+	<br>
+		<input type="checkbox" id="c1" name="colors" value="red"><label for="c1">Red</label>
+		<input type="checkbox" id="c2" name="colors" value="blue"><label for="c2">Blue</label>
+		<input type="checkbox" id="c3" name="colors" value="green"><label for="c3">Green</label>
+	<br>
+	<label>Operating System:</label>
+	<select name="os">
+		<option value="ubuntu">Ubuntu</option>
+		<option value="windows" selected>Windows</option>
+		<option value="apple">Apple</option>
+	</select>
+	<br>
+	<label>Operating System:</label>
+	<select name="os2" size="3" multiple>
+		<option value="ubuntu">Ubuntu</option>
+		<option value="windows" selected>Windows</option>
+		<option value="apple">Apple</option>
+	</select>
+	<br>
+	<label>Any file:</label><input type="file" />
+	<br>
+	<label>Start Date</label>
+	<input type="date" name="startDate" id="startDate"/>
+	<script>
+		document.getElementById('startDate').valueAsDate = new Date();
+	</script>
+	<br>
+	<label>Search:</label><input type="search" name="search" placeholder="Enter keyword"/>
+	<br>
+	<label>Enter your email address:</label><input type="email" name="email" />
+	<br>
+	<label>Enter your website url:</label><input type="url" name="url" />
 	<br>
 	<button formaction="testform">Submit</button>
 	<input type="hidden" th:name="${_csrf.parameterName}" 
 						 th:value="${_csrf.token}" />
+	<!-- End -->
 </form>
+<br>
+<!-- youtube video -->
+<iframe width="560" height="315" 
+	src="https://www.youtube.com/embed/lM1U78RLChY">
+</iframe>
 <br>
 <a href="home">Home</a>
 <br>
 <a href="#top">Top</a>
 <br><br>
+&copy; Tom Suliga
 </body>
 </html>
 

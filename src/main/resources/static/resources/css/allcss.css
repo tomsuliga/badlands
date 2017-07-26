@@ -1,15 +1,39 @@
 @charset "ISO-8859-1";
 
-h1,h2 {
+.blue {
 	color: blue;
 }
 
-td {
-	background-color: pink;
-	padding: .5em;
+.largefont {
+	font-family: sans-serif, serif;
+	font-size: 5em;
+	font-weight: 600;
+	color: #ff8040;
+	/* how far to left or right the shadow should fall
+	   distance to top or bottom the shadow should fall
+	   amount of blur 
+	*/
+	text-shadow: 5px 5px 5px #000;
 }
 
+/* Pretty Table Layout */
+table {
+	width: 500px;
+}
+th, td {
+	padding: 7px 10px 10px 10px;
+}
 th {
-	background-color: cyan;
-	padding: .5em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 90%;
+	border-bottom: 2px solid #111111;
+	border-top: 1px solid #999;
+	text-align: left;
+}
+tr:nth-child(even) {
+	background-color: #ddd;
+}
+tr:hover {
+	background-color: #c3e6e5;
 }
