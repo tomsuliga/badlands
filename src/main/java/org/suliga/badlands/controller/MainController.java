@@ -176,6 +176,16 @@ public class MainController {
 		redirectAttrs.addFlashAttribute("name", name);
 		return "redirect:testform";
 	}
+	
+	@GetMapping("/float")
+	public String floatGet(Model model) {
+		return "float";
+	}
+	
+	@GetMapping("/html5")
+	public String html5(Model model) {
+		return "html5";
+	}
 }
 
 
