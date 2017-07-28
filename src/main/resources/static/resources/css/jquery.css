@@ -1,0 +1,12 @@
+@charset "ISO-8859-1";
+
+h2 {
+	color: purple;
+}
+
+div#fixedsize {
+	width: 100px;
+	height: 125px;
+}
+
+

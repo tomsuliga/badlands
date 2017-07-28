@@ -191,6 +191,11 @@ public class MainController {
 	public String testjs(Model model) {
 		return "testjs";
 	}
+	
+	@GetMapping("/testjquery")
+	public String testjquery(Model model) {
+		return "testjquery";
+	}
 }
 
 
