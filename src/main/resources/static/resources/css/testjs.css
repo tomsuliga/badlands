@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+
+button {
+	margin: .5em;
+}
+
+div#divGrid {
+	width: 400px;
+	height: 200px;
+	background-color: #ddd;
+}
+
+.gridClass {
+	width: 25px;
+	height: 25px;
+	float: left;
+}
+
+.red {
+	background-color: red;
+}
+
+.blue {
+	background-color: blue;
+}
+
+.green {
+	background-color: green;
+}

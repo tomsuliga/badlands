@@ -186,7 +186,14 @@ public class MainController {
 	public String html5(Model model) {
 		return "html5";
 	}
+	
+	@GetMapping("/testjs")
+	public String testjs(Model model) {
+		return "testjs";
+	}
 }
+
+
 
 
 
