@@ -1,9 +1,10 @@
 /*globals $:false */
+/*globals window:false */
+/*globals jQuery:false */
 /*globals console:false */
 /*jshint esversion:6 */
 /*jshint evil:true */
 /*jshint globalstrict: true */
-
 'use strict';
 
 $('document').ready(function() {
@@ -24,6 +25,13 @@ $( "#fadeout" ).click(function() {
 	  $( "#ww" ).fadeOut( "slow", function() {
 	    // Animation complete
 	  });
+});
+
+$('#hideall').click(function() {
+	$('img').hide();
+	window.$('img').hide();
+	jQuery('img').hide();
+	window.jQuery('img').hide();
 });
 
 //map()
