@@ -9,4 +9,54 @@ div#fixedsize {
 	height: 125px;
 }
 
+.big {
+	font-size: 2em;
+}
+
+.blue {
+	color: blue;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.red {
+	color: red;
+}
+
+.invisible {
+	display: none;
+}
+
+p.c99 {
+	height: 4.5em;
+	overflow: hidden;
+	width: 20em;
+	position: absolute;
+}
+
+p.full {
+	height: auto;
+}
+
+.offscreen {
+	left: -400px;
+	top: 250px;
+}
+
+.hidden_no_space {
+	display: none;
+}
+
+.hidden_keep_space {
+	visibility: hidden;
+}
+
+.half {
+	opacity: .5
+	// 0 - show 0%
+	// .5 - show 50%
+	// 1 - show 100%
+}
 
