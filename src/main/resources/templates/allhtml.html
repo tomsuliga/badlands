@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="us" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Badlands</title>
+	<meta charset="ISO-8859-1">
+	<meta name="description" content="Badlands Html Examples">
+	<meta name="keywords" content="html5, javascript, tutorial, examples">
+	<meta name="robots" content="noindex, noarchive, nofollow">
+	<meta http-equiv="author" content="Tom Smith">
+	<meta http-equiv="pragma" content="no-cache">
+	<link type="text/css" href="resources/css/allcss.css" rel="stylesheet" />
+	<style type="text/css">
+		h3 {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+<span class="largefont">My Large Text</span>
+<h1 id="top" class="blue">Heading h1</h1>
+<h2>Heading h2</h2>
+<h3>Heading h3</h3>
+<h4>Heading h4</h4>
+<h5>Heading h5</h5>
+<h6>Heading h6</h6>
+This is default normal text
+<br>
+<b>This is &lt;b&gt; text</b>
+<br>
+<i>This is &lt;i&gt; text</i>
+<br>
+The following is <sub>sub</sub>
+<br>
+The following is <sup>sup</sup>
+<br>
+Now for a &lt;hr /&gt; <hr/>
+<br>
+<strong>This is &lt;strong&gt; text</strong>
+<br>
+<em>This is &lt;em&gt; text</em>
+<br>
+<blockquote>This is &lt;blockquote&gt; text</blockquote>
+<q>This is &lt;q&gt; text</q>
+<br>
+abbr tag and title attribute allow for <abbr title="Doctor">Dr.</abbr> <abbr title="A Mad Man in a Box">Who</abbr>.
+<br>
+cite can be used as in my favorite book is <cite>Moby Dick</cite> which is 600 pages.
+<br>
+dfn may or may not be shown as in this <dfn>Novel</dfn> sentence.
+<br>
+My address block follows:
+<br>
+<address>1234 E Main<br>Wagon Wheel Circle</address>
+<br>
+I will insert a word via ins right <ins>here</ins> and that is all.
+<br>
+I will delete a word via del right <del>here</del> and that is all.
+<br>
+s is used to indicate a no longer relevant <s>word</s> and that is all. s is obsolete in html5.
+<br>
+ol = ordered list
+<br>
+li = list item
+<ol>
+	<li>Ordered list 1</li>
+	<li>Ordered list 2</li>
+	<li>Ordered list 3</li>
+</ol>
+ul = unordered list
+<br>
+li = list item
+<ul>
+	<li>Unordered 1</li>
+	<li>Unordered 2</li>
+	<li>Unordered 3</li>
+</ul>
+Nested List
+<ul>
+	<li>Animals
+		<ul>
+			<li>Cat</li>
+			<li>Dog</li>
+		</ul>
+	</li>
+	<li>Trees
+		<ul>
+			<li>Redwood</li>
+			<li>Mesquite</li>
+		</ul>
+	</li>
+</ul>
+Absolute url: <a href="http://www.yahoo.com">Yahoo</a> - current tab
+<br>
+Absolute url: <a href="http://www.yahoo.com" target="_blank">Yahoo</a> - new tab - target = "_blank"
+<br>
+Relative url: <a href="home">Home</a> - same folder
+<br>
+<figure>
+	<a href="resources/images/ww.jpg" target="_blank">
+		<img src="resources/images/ww.jpg" alt="wonder woman" title="Wonder Woman Cosplay" height="160" width="80" />
+	</a>
+	<figcaption>Pic of Wonder Woman from Cosplay event.</figcaption>
+</figure>
+<table>
+	<tr>
+		<th>Heading 1</th>
+		<th>Heading 2</th>
+		<th>Heading 3</th>
+	</tr>
+	<tr>
+		<td>Data 1</td>
+		<td>Data 2</td>
+		<td>Data 3</td>
+	</tr>
+		<tr>
+		<td>Data 4</td>
+		<td>Data 5</td>
+		<td>Data 6</td>
+	</tr>
+		<tr>
+		<td>Data 7</td>
+		<td>Data 8</td>
+		<td>Data 9</td>
+	</tr>
+</table>
+<br>
+<table>
+	<tr>
+		<th></th>
+		<th>Top 1</th>
+		<th>Top 2</th>
+	</tr>
+	<tr>
+		<th>Left 1</th>
+		<td>Data 1</td>
+		<td>Data 2</td>
+	</tr>
+	<tr>
+		<th>Left 2</th>
+		<td>Data 3</td>
+		<td>Data 4</td>
+	</tr>
+</table>
+<br>
+<table>
+	<tr>
+		<th colspan="2">Long Heading</th>
+		<th rowspan="2">Deep</th>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan="2">Data 1</td>
+		<td>Data 2</td>
+</table>
+<br>
+<form method="post">
+	<!-- Start -->
+	<label for="name">Name</label><input type="text" id="name" name="name" placeholder="Enter name" required/>
+	<br>
+	<label for="pw">Password</label><input type="password" id="pw" name="pw"/>
+	<br>
+	<label for="notes" class="blue">Notes</label><textarea id="notes" cols="40" rows="8"></textarea>
+	<br>
+		<input type="radio" id="r1" name="band" value="rush" checked /><label for="r1">Rush</label>
+		<input type="radio" id="r2" name="band" value="posies" /><label for="r2">The Posies</label>
+		<input type="radio" id="r3" name="band" value="ccr" /><label for="r3">CCR</label>
+	<br>
+		<input type="checkbox" id="c1" name="colors" value="red"><label for="c1">Red</label>
+		<input type="checkbox" id="c2" name="colors" value="blue"><label for="c2">Blue</label>
+		<input type="checkbox" id="c3" name="colors" value="green"><label for="c3">Green</label>
+	<br>
+	<label>Operating System:</label>
+	<select name="os">
+		<option value="ubuntu">Ubuntu</option>
+		<option value="windows" selected>Windows</option>
+		<option value="apple">Apple</option>
+	</select>
+	<br>
+	<label>Operating System:</label>
+	<select name="os2" size="3" multiple>
+		<option value="ubuntu">Ubuntu</option>
+		<option value="windows" selected>Windows</option>
+		<option value="apple">Apple</option>
+	</select>
+	<br>
+	<label>Any file:</label><input type="file" />
+	<br>
+	<label>Start Date</label>
+	<input type="date" name="startDate" id="startDate"/>
+	<script>
+		document.getElementById('startDate').valueAsDate = new Date();
+	</script>
+	<br>
+	<label>Search:</label><input type="search" name="search" placeholder="Enter keyword"/>
+	<br>
+	<label>Enter your email address:</label><input type="email" name="email" />
+	<br>
+	<label>Enter your website url:</label><input type="url" name="url" />
+	<br>
+	<button formaction="testform">Submit</button>
+	<input type="hidden" th:name="${_csrf.parameterName}" 
+						 th:value="${_csrf.token}" />
+	<!-- End -->
+</form>
+<br>
+<!-- youtube video -->
+<iframe width="560" height="315" 
+	src="https://www.youtube.com/embed/lM1U78RLChY">
+</iframe>
+<br>
+<a href="home">Home</a>
+<br>
+<a href="#top">Top</a>
+<br><br>
+&copy; Tom Suliga
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

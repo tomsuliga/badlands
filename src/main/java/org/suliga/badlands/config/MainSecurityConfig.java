@@ -28,13 +28,10 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
         hs
             .authorizeRequests()
             
-                .antMatchers("/", "/index", "/home", "/font", "/XXXrest/**").permitAll()
+                .antMatchers("/", "/index", "/home", "/font", "/logout", "/resources/**", "/XXXrest/**").permitAll()
                 .antMatchers("/rest/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN", "ROLE_DBA")
                 .antMatchers("/adduser").hasAnyAuthority("ROLE_ADMIN", "ROLE_DBA")
                 .antMatchers("/listusers").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN", "ROLE_DBA")
-                // needed to allow login.html to access src/main/resources/static/resources/css/login.css
-                .antMatchers("/resources/**").permitAll()
-                
                 .anyRequest().authenticated()
                 //.and().csrf().and()
                 .and()

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,6 +14,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +29,7 @@ import org.suliga.badlands.service.UserService;
 
 @Controller
 public class MainController {
+	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
 	@Autowired
 	private AddImageService addImageService;
@@ -144,7 +148,57 @@ public class MainController {
 	public String i18n(Model model) {
 		return "i18n";
 	}
+	
+	@GetMapping("/allhtml") 
+	public String allhtml(Model model) { 
+		return "allhtml"; 
+	}
+	
+	@GetMapping("/testform")
+	public String testForm(Model model, @ModelAttribute("name") String name) {
+		model.addAttribute("name", name);
+		return "testform";
+	}
+	
+	@PostMapping("/testform")
+	public String testFormPost(RedirectAttributes redirectAttrs,
+							   @RequestParam("pw") String pw,
+							   @RequestParam("name") String name,
+							   @RequestParam(value="colors", required=false) String[] colors,
+							   @RequestParam(value="os", required=false) String os) {
+		logger.info("pw=" + pw);
+		logger.info("os=" + os);
+		if (colors != null) {
+			for (String s : colors) {
+				logger.info("color=" + s);
+			}
+		}
+		redirectAttrs.addFlashAttribute("name", name);
+		return "redirect:testform";
+	}
+	
+	@GetMapping("/float")
+	public String floatGet(Model model) {
+		return "float";
+	}
+	
+	@GetMapping("/html5")
+	public String html5(Model model) {
+		return "html5";
+	}
+	
+	@GetMapping("/testjs")
+	public String testjs(Model model) {
+		return "testjs";
+	}
+	
+	@GetMapping("/testjquery")
+	public String testjquery(Model model) {
+		return "testjquery";
+	}
 }
+
+
 
 
 
